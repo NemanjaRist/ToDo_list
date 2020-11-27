@@ -1,0 +1,30 @@
+<div class="ng-container">
+  <div class="col-12" style="text-align: center;">
+    <h1 style="text-align: center;">Dodavanje nove liste</h1>
+    <hr>
+<div>
+    <div class="form-group">
+        <label> <h4>Naziv liste</h4> </label>
+        <input type="text" class="form-control col-4" [(ngModel)]="inputValue" style="margin-left: 33.3%;">
+    </div>
+    <button class="btn btn-outline-dark col-4 " (click)="onDodavanje(inputValue)">Dodaj listu</button>
+</div>
+<hr>
+  <table class="col-4 table table-dark table-hover" style="border: 2px solid black; margin-left: 33.3%;">
+    <thead>
+      <th>#</th>
+      <th>Lista</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let listaItem of liste" >
+        <td >{{ listaItem.listaId }}. </td>
+        <td >{{ listaItem.listaIme }} </td>
+        <td style="float: right;"><button class="btn btn-outline-warning" (click)="onObrisi(listaItem.listaId)">Obrisi</button></td>
+        <td style="float: right;"><button class="btn btn-outline-warning" [routerLink]="['/lista',listaItem.listaId]">Detaljnije</button></td>
+      </tr>
+    </tbody>
+</table>
+  </div>
+</div>
+
